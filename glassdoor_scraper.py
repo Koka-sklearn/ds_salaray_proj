@@ -2,6 +2,8 @@
 """
 Created on Thu Apr  2 09:32:36 2020
 author: bgourdon
+
+url: https://github.com/arapfaik/scraping-glassdoor-selenium
 """
 
 from selenium.common.exceptions import NoSuchElementException, ElementClickInterceptedException
@@ -40,9 +42,7 @@ def get_jobs(keyword, num_jobs, verbose, path, slp_time):
             driver.find_element_by_class_name("selected").click()
         except ElementClickInterceptedException:
             pass
-
         time.sleep(.1)
-
         try:
             driver.find_element_by_css_selector('[alt="Close"]').click() #clicking to the X.
           
