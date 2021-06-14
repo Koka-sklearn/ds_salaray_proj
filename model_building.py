@@ -103,3 +103,33 @@ mean_absolute_error(y_test,tpred_lml)
 mean_absolute_error(y_test,tpred_rf)
 
 mean_absolute_error(y_test,(tpred_lm+tpred_rf)/2)
+
+#flask API
+#model 
+import pickle
+pickl = {'model': gs.best_estimator_}
+pickle.dump( pickl, open( 'model_file' + ".p", "wb" ) )
+
+file_name = "model_file.p"
+with open(file_name, 'rb') as pickled:
+    data = pickle.load(pickled)
+    model = data['model']
+
+model.predict(np.array(list(X_test.iloc[1,:])).reshape(1,-1))[0]
+
+list(X_test.iloc[1,:])
+#creation d'un output de résultats vers un nouveau fichier py
+
+#open prompt and create a vm or new kernel python with nothing in it
+# cd your file
+# mkdir FlaskAPI
+# cd FlaskAPI
+#conda create -n flask_env python=3.8
+#conda install flask
+#conda install pandas
+#conda install scikit-learn
+#pip freeze > requirement.txt #make requirement.txt folders
+# create some folder in it like :
+    #touch app.py
+    #touch 
+# install some package in it
